@@ -116,3 +116,22 @@ break;
 }
 }
 }
+
+package book;
+
+ 
+public class Person {
+    String firstname,lastname,city, address,Gender,email;
+String phonenumber;
+Person(String firstname,String lastname,String city, String address,String sex,String email,String
+phonenumber){
+this.firstname=firstname;
+this.lastname=lastname;
+this.city=city;
+this.address=address;
+this.Gender=Gender;
+this.email=email;
+
+this.phonenumber=phonenumber;
+}
+}
