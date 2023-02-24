@@ -1,0 +1,118 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
+ */
+
+package book;
+
+/**
+ *
+ * @author a7med
+ */
+
+
+
+import java.util.*;
+
+ public class Boo {
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+String firstname,lastname,city, address,sex,email;
+String phonenumber;
+int x=0;
+LinkedList<Person> l=new LinkedList<Person>();
+while(true){
+System.out.println(" 1. to Add person details into the telephone book.");
+System.out.println(" 2. to Remove a person from the telephone book");
+System.out.println(" 3. to Update a telephone number by providing person first name.");
+System.out.println(" 4. to Display the entire telephone book");
+System.out.println(" 5. to Search a telephone number based on person first name");
+System.out.println(" 6. to Sort the entire telephone book.");
+System.out.println(" 7. Exit the program.");
+System.out.println("Input your option: ");
+x=sc.nextInt();
+if(x==1){
+System.out.println("Enter firstname:");
+firstname=sc.next();
+System.out.println("Enter lastname:");
+lastname=sc.next();
+System.out.println("Enter phonenumber:");
+
+phonenumber=sc.next();
+System.out.println("Enter city:");
+city=sc.next();
+System.out.println("Enter address:");
+address=sc.next();
+System.out.println("Enter Gender:");
+sex=sc.next();
+System.out.println("Enter email:");
+email=sc.next();
+Person p=new Person(firstname,lastname,city,address,sex,email,phonenumber);
+l.add(p);
+}
+else if (x==2){
+System.out.println("Enter phonenumber:");
+phonenumber=sc.next();
+for(int i=0;i<l.size();i++){
+if(l.get(i).phonenumber.equals(phonenumber)){
+l.remove(i);
+break;
+}
+}
+}
+else if(x==3){
+System.out.println("Enter firstname:");
+firstname=sc.next();
+System.out.println("Enter phonenumber:");
+phonenumber=sc.next();
+for(int i=0;i<l.size();i++){
+if(l.get(i).firstname.equals(firstname)){
+l.get(i).phonenumber=phonenumber;
+break;
+
+}
+}
+}
+else if(x==4){
+for(int i=0;i<l.size();i++){
+System.out.println("firstname: "+l.get(i).firstname);
+System.out.println("lastname: "+l.get(i).lastname);
+System.out.println("phonenumber: "+l.get(i).phonenumber);
+System.out.println("address: "+l.get(i).address);
+System.out.println("Gender: "+l.get(i).Gender);
+System.out.println("email: "+l.get(i).email);
+System.out.println();
+}
+}
+else if(x==5){
+System.out.println("Enter firstname:");
+firstname=sc.next();
+for(int i=0;i<l.size();i++){
+if(l.get(i).firstname.equals(firstname)){
+System.out.println(l.get(i).phonenumber);
+break;
+}
+}
+}
+else if(x==6){
+for(int i=0;i<l.size()-1;i++){
+for(int j=0;j<l.size()-i-1;j++){
+if(l.get(i).firstname.compareTo(l.get(j+1).firstname)>0){
+//System.out.println(l.get(i).firstname+" "+l.get(j).firstname);
+Person p=l.get(i);
+l.set(i,l.get(j+1));
+
+l.set(j+1,p);
+}
+}
+}
+}
+else if(x==7){
+System.exit(0);
+}
+else{
+break;
+}
+}
+}
+}
